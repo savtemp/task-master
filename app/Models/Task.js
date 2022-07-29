@@ -10,17 +10,33 @@ export class Task{
 
     get Template(){
         return `
-        <div class="col-4 bg-white elevation-2 rounded">
-            <div class="row bg-success">
-                <div class="col-12">
-                    <p>${this.name}</p>
+        <section class="col-4 bg-white elevation-2 rounded"
+            <div>
+                <p>${this.name}</p>
+                <p class="text-end" onclick="app.tasksController.deleteTask('${this.id}')">X</p>
+            </div>
+            <div>
+                <ul>${this.ItemsTemplate}</ul>
+            </div>
+            <form class="row">
+                <div class="col-10">
+                    <input name="name" id="name" type="text" class="form-control" placeholder="Task..."> 
                 </div>
-            </div>
-            <div class="row bg-primary">
-                ${this.Items}
-            </div>
-        </div>
+                <div class="col-2">
+                <button class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </section>
         `
+    }
+
+    get ItemsTemplate(){
+        let template = ''
+        ProxyState.items
+        .filter(item => item.taskId == this.id)
+        .forEach(item => template += item.Template)
+
+        return template
     }
 }
 

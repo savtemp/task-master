@@ -10,14 +10,36 @@ class AppState extends EventEmitter {
   /** @type {import('./Models/Task').Task[]} */
   tasks = [
     new Task({
-      name: 'Groceries'
+      name: 'Groceries',
+      id: '62e30d50864cc827321eb06b'
+    }), 
+    new Task({
+      name: 'Chores',
+      id:'62e34ba154acde76d539949b',
+    }),
+    new Task({
+      name: 'Do Homework',
+      id:'62e34bab9050ed2e77c6bed2',
     })
   ]
 
   /** @type {import('./Models/Item').Item[]} */
   items = [
     new Item({
-      body: 'buy corn'
+      taskId: '62e30d50864cc827321eb06b',
+      name: 'buy corn',
+    }),
+    new Item({
+      name: 'buy diet coke',
+      taskId: '62e30d50864cc827321eb06b',
+    }),
+    new Item({
+      name:'Coding quiz',
+      taskId:'62e34bab9050ed2e77c6bed2'
+    }),
+    new Item({
+      name:'walk the dog',
+      taskId:'62e34ba154acde76d539949b',
     })
   ]
 

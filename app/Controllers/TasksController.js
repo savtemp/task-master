@@ -7,7 +7,7 @@ function _draw(){
     let template = ''
     let tasks = ProxyState.tasks
     tasks.forEach(t => template += t.Template)
-    document.getElementById('task-box').innerHTML = template
+    document.getElementById('tasks').innerHTML = template
 }
 
 export class TasksController{
